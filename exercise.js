@@ -22,3 +22,5 @@ console.log(employees_count)
 let employees_count2 = Object.values(company.departments).reduce((acc, cur) => 
     acc + cur.employees ,0)
 console.log(employees_count2)
+
+///////////////
