@@ -24,3 +24,14 @@ let employees_count2 = Object.values(company.departments).reduce((acc, cur) =>
 console.log(employees_count2)
 
 ///////////////
+const myArray = [
+    ["name", "John"],
+    ["lastname", "Doe"],
+    ["age", 43],
+    ["diagnosis", "CF"]
+]
+const objFromArray = Object.fromEntries(myArray)
+console.log(objFromArray)
+const arrFromobj = Object.entries(objFromArray)
+console.log(arrFromobj)
+/////////////////
