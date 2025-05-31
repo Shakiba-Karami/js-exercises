@@ -155,7 +155,7 @@ const objFromArray = Object.fromEntries(myArray)
 console.log(objFromArray)
 const arrFromobj = Object.entries(objFromArray)
 console.log(arrFromobj)
-/////////////////
+///sum of ages:
 const people2 = {
     ali: 23,
     jay: 31,
@@ -166,10 +166,107 @@ const sum2 = Object.values(people2)
 console.log(sum2)
 ageAverage2 = sum2.reduce((acc, cur) => acc + cur, 0)/sum2.length
 console.log(ageAverage2)
-
+ 
 ///length of a string
 console.log(objFromArray.name.length)
-/////////////
+///////////// check number of characters in a name
+console.log('shakiba'.split('').length) 
+//// 
+const peopleAsString = 'Shakiba,Pedram,Maryam' 
+
+const PeopleAsObject = Object.fromEntries(peopleAsString.split(',').map((item) => {
+  return [item.toLowerCase(), item.length]  
+}))
+
+console.log(PeopleAsObject)
+
+/////////////////////////
+const students = [
+  {
+    name: "Alice",
+    courses: {
+      math: 18,
+      english: 14,
+      history: 12,
+    },
+  },
+  {
+    name: "Bob",
+    courses: {
+      math: 10,
+      chemistry: 16,
+      physics: 19,
+    },
+  },
+  {
+    name: "Charlie",
+    courses: {
+      biology: 13,
+      english: 17,
+      math: 15,
+    },
+  },
+  {
+    name: "Diana",
+    courses: {
+      art: 20,
+      music: 18,
+      english: 16,
+    },
+  },
+  {
+    name: "Ethan",
+    courses: {
+      geography: 11,
+      history: 14,
+      math: 9,
+    },
+  },
+    {
+    name: "Ali",
+
+  },
+];
+
+//Average Score of a student
+const getPersonAverage = (personName) => { 
+    const student = students.find((person) => {
+    return person.name === personName
+    })
+    if (!student) {
+        return 0
+    }
+    const coursesScores = Object.values(student.courses || {})
+     if (!coursesScores.length) {
+        return 'No course'
+    }
+    const averageScore = coursesScores.reduce((acc, cur) => acc + cur, 0)/coursesScores.length
+    return averageScore
+}
+console.log(getPersonAverage('Ali'))
+
+/// If a student has a course
+
+const studentHasCourse = (personName, courseName) => {
+    const student = students.find((person) => {
+        return person.name === personName
+    })
+    console.log(student)
+    if (!student) {
+        return 'No such student'
+    }
+    // const course = students.some((item) => {
+    //     return item.courses === courseName
+    //     // This checks if the whole courses object equals the string 'history' → it will never be true.
+    // })
+    return Object.keys(student.courses).some((item) => {
+        return item === courseName
+    })
+}
+console.log(studentHasCourse('Ethan', 'math'))
+
+// Average score of a course in all students
+
 
 
 
